@@ -1,0 +1,23 @@
+.contaiUser {
+    position: relative;
+    cursor: pointer;
+}
+
+.contaiInfo {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    color: #202020;
+    /* right: 10px; */
+    left: -20px;
+    opacity: 0;
+    transition: opacity 6s ease;
+}
+
+.contaiUser:hover .contaiInfo {
+    opacity: 1;
+    display: block;
+    
+}
