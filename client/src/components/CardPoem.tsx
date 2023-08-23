@@ -1,4 +1,5 @@
-import useImg from '../assets/images/user.jpg'
+import useImg from '../assets/images/user.jpg';
+import style from '../styles/CardPoem.module.css';
 
 interface Poem {
     title: string
@@ -11,19 +12,19 @@ interface Poem {
 
 const CardPoem = ({title, text, date, user}: Poem) => {
   return (
-    <div>
-        <div>
-            <span>{title}</span>
+    <div className={style.card}>
+        <div className='py-2'>
+            <span className='font-bold text-center text-base'>{title}</span>
         </div>
         <div>
-            <p>{text}</p>
+            <p className={style.textPoem}>{text}</p>
         </div>
-        <div>
-            <div>
-                <img src={useImg} alt={user.username} width={30} className='rounded-full'/>
+        <div className={style.contaiUser}>
+            <div className={style.userPublic}>
+                <img src={useImg} alt={user.username} width={25} className='rounded-full'/>
                 <p>{user.username}</p>
             </div>
-            <div>
+            <div className={style.date}>
                 <span>{date}</span>
             </div>
         </div>

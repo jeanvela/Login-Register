@@ -1,6 +1,7 @@
 import { FormEvent, useState, ChangeEvent } from 'react'
 import { postPoem } from '../redux/feutures/createPoemSlice'
 import { useAppDispatch } from '../redux/hook'
+import style from '../styles/CreatePoem.module.css'
 
 interface Poem {
   title: string
@@ -25,24 +26,29 @@ const CreatePoem = () => {
   }
 
   return (
-    <section>
+    <section className={style.section}>
       <div>
-        <form onSubmit={handleSubmit}>
-          <input 
-            onChange={handlechangue} 
-            type="text"
-            name='title' 
-            placeholder='title...' 
-            className='text-gray-900'
-          />
-          <textarea 
-            onChange={handlechangue} 
-            name="text" 
-            cols={20} rows={10} 
-            placeholder='text...' 
-            className='text-slate-900'
-          ></textarea>
-          <button className='bg-lime-600 px-3 py-2'>Create poem</button>
+        <form className={style.form} onSubmit={handleSubmit}>
+          <h1 className='text-xl font-bold text-slate-50'>Create poem</h1>
+          <div className={style.contaiInput}>
+            <input 
+              onChange={handlechangue} 
+              type="text"
+              name='title' 
+              placeholder='title...' 
+              className={style.input}
+            />
+          </div>
+          <div className='w-full px-4'>
+            <textarea 
+              onChange={handlechangue} 
+              name="text" 
+              // cols={35} rows={8} 
+              placeholder='text...' 
+              className='text-white resize-none p-1 outline-none border-none w-full h-52'
+            ></textarea>
+          </div>
+          <button className={style.btn}>Create poem</button>
         </form>
       </div>
     </section>

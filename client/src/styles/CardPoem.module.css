@@ -1,0 +1,65 @@
+.card {
+    border-radius: 6px;
+    background: #caf0f8;
+    box-shadow:  11px 11px 8px #656565, -11px -11px 8px #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+}
+
+.textPoem {
+    padding: 0 15px;
+    font-weight: 600;
+    font-size: 14px;
+    height: 295px;
+    text-align: justify;
+    overflow-y: auto;
+}
+
+.contaiUser {
+    display: flex;
+    padding: 15px 10px 5px 10px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.userPublic {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+@media (max-width: 724px) {
+    .card {
+        width: 280px;
+    }
+    .textPoem {
+        font-size: 13px;
+    }
+    .date {
+        display: none;
+    }
+}
+
+@media (max-width: 644px) {
+    .card {
+        width: 240px;
+    }
+    .textPoem {
+        height: 340px;
+    }
+}
+
+@media (max-width: 525px) {
+    .card {
+        width: 260px;
+    }
+    
+    .textPoem {
+        height: 310px;
+    }
+}

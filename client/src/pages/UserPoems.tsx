@@ -21,8 +21,8 @@ const UserPoems = () => {
   }, [dispacth])
 
   return (
-    <section>
-      <div>
+    <section className='py-16 px-4 grid place-items-center'>
+      <div className='flex flex-wrap w-full max-[width]:1400px gap-4 px-2.5 justify-center items-center'>
         {
           allPoemsUser?.map((poem: Poem, i: number) => {
             return (

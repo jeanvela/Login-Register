@@ -28,12 +28,6 @@ const initialState: Root = {
 }
 
 export const logIn = createAsyncThunk('loginUp',async (user: User) => {
-    // try {
-    //     const response = await Axios.post('/login', user)
-    //     return response.data
-    // } catch (error) {
-    //     return error
-    // }
     try {
         const response = await Axios.post('/login', user);
         return response.data; // Devolver los datos obtenidos

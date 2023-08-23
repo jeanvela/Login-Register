@@ -1,0 +1,6 @@
+.section {
+    padding: 4rem 1rem;
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}

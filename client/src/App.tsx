@@ -11,6 +11,7 @@ import Poems from './pages/Poems';
 import UserPoems from './pages/UserPoems';
 import CreatePoem from './pages/CreatePoem';
 import ProtectedRouter from './components/ProtectedRouter';
+import NotFound from './pages/NotFound';
 
 function App() {
   const dispacth = useAppDispatch()
@@ -21,7 +22,6 @@ function App() {
     if (userToken.token) {
       setIsAuth(true)
       dispacth(profile(userToken.token))
-      // return
     } else {
       setIsAuth(false)
     }
@@ -32,13 +32,14 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Poems />}/>
-          <Route path='/login' element={<Login />}/>
+          <Route path='/login' element={<Login setIsAuth={setIsAuth}/>}/>
           <Route path='/register' element={<Register />}/>
           <Route element={<ProtectedRouter isAuth={isAuth}></ProtectedRouter>}>
             <Route path='/my-poems' element={<UserPoems />}/>
             <Route path='/create-poem' element={<CreatePoem />}/>
           </Route>
           <Route path='/poems/:id' element={<h1>Hola mundo6</h1>}/>
+          <Route path='*' element={<NotFound />}/>
         </Routes>
   </BrowserRouter>
   )

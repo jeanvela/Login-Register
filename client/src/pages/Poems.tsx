@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../redux/hook';
 import { getPoems } from '../redux/feutures/poemsSlice';
 import CardPoem from '../components/CardPoem';
+import style from '../styles/Poems.module.css';
 
 interface Poem {
   title: string
@@ -21,8 +22,8 @@ const Poems = () => {
   }, [dispacth])
 
   return (
-    <section>
-      <div>
+    <section className={style.Poems}>
+      <div className={style.contaiPoems}>
         {
           allPoems.poem?.map((p: Poem, i: number) => {
             return (

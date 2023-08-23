@@ -1,0 +1,16 @@
+.Poems {
+    padding: 4rem 1rem;
+    display: grid;
+    place-items: center;
+}
+
+.contaiPoems {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1400px;
+    gap: 15px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}

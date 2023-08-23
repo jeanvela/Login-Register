@@ -4,6 +4,7 @@ import style from '../styles/Navbar.module.css'
 import { useAppSelector, useAppDispatch } from '../redux/hook'
 import { logout } from '../redux/feutures/loginUpSclice'
 import { useNavigate } from 'react-router-dom'
+
 const Navbar = () => {
   const dispacth = useAppDispatch()
   const navigate = useNavigate()
@@ -14,15 +15,15 @@ const Navbar = () => {
   }
 
   return (
-    <header className='bg-sky-950 py-3 font-bold text-slate-950'>
+    <header className={style.header}>
         <nav>
-            <ul className='flex justify-center text-center gap-10'>
+            <ul className={style.ul}>
               {
                 user.email !== null ? (
                   <>
-                    <li><Link to='/' >Poems</Link></li>
-                    <li><Link to='/my-poems' >My poems</Link></li>
-                    <li><Link to='/create-poem' >Create poem</Link></li>
+                    <li><Link to='/' className='font-bold text-base' >Poems</Link></li>
+                    <li><Link to='/my-poems' className='font-bold text-base'>My poems</Link></li>
+                    <li><Link to='/create-poem' className='font-bold text-base'>Create poem</Link></li>
                     <li>
                       <div className={style.contaiUser}>
                         <img src={userImg} alt="user" width={30} className='rounded-full'/>
@@ -34,9 +35,9 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    <li><Link to='/'>Poems</Link></li>
-                  <li><Link to='/login'>Login</Link></li>
-                  <li><Link to='/register'>SingUp</Link></li>
+                    <li><Link to='/' className='font-bold text-base'>Poems</Link></li>
+                  <li><Link to='/login' className='font-bold text-base'>Login</Link></li>
+                  <li><Link to='/register' className='font-bold text-base'>SingUp</Link></li>
                   </>
                 )
               }

@@ -1,3 +1,17 @@
+.header {
+    background-color: #f5f3f4;
+    padding: 14px;
+    text-align: center;
+    border-bottom: #000 solid 1px;
+}
+
+.ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
 .contaiUser {
     position: relative;
     cursor: pointer;
@@ -19,5 +33,4 @@
 .contaiUser:hover .contaiInfo {
     opacity: 1;
     display: block;
-    
 }
