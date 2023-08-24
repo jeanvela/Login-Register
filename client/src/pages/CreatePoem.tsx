@@ -46,7 +46,7 @@ const CreatePoem = () => {
     }
     
   }
-  console.log(createPoem)
+
   return (
     <section className={style.section}>
       <div>
