@@ -8,6 +8,50 @@
     ],
     "routes": [
         {
+            "src": "/api/allPoems",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/poems",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/poems/:id",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/poems/post",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/poems/:id",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/poems/:id",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/register",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/login",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/logout",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/profile",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/api/verify",
+            "dest": "/index.js"
+        },
+        {
             "src": "/(.*)",
             "dest": "/"
         }
