@@ -14,7 +14,7 @@ const getPoems = async (req, res) => {
         const allPoems = await Poem.find({
             user: req.user.id
         }).populate('user')
-
+        if (!allPoems) return res.status(200).json([])
         res.status(200).json(allPoems)
     } catch (error) {
         res.status(404).json({message: error.message})

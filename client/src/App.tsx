@@ -38,7 +38,6 @@ function App() {
             <Route path='/my-poems' element={<UserPoems />}/>
             <Route path='/create-poem' element={<CreatePoem />}/>
           </Route>
-          <Route path='/poems/:id' element={<h1>Hola mundo6</h1>}/>
           <Route path='*' element={<NotFound />}/>
         </Routes>
   </BrowserRouter>

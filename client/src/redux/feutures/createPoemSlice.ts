@@ -25,10 +25,10 @@ export const postPoem = createAsyncThunk('createPoem', async (poem: Poem) => {
     try {
         const token = Cookies.get()
         const response = await axios.post('http://localhost:3001/api/poems/post', poem, {
+            withCredentials: true,
             headers: {
                 Authorization: `Bearer ${token.token}`
             },
-            withCredentials: true
         })
         return response.data
     } catch (error) {
@@ -47,6 +47,7 @@ const createPoemSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(postPoem.fulfilled, (state, action) => {
             state.poem = action.payload
+            state.error = {}
         })
         builder.addCase(postPoem.rejected, (state, action) => {
             state.error = action.error

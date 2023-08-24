@@ -6,16 +6,19 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime)
 
 interface Poem {
+    _id: string
     title: string
     text: string
     date: string
     user: {
         username: string,
-    }
+    },
+    handleDelete: (id:string) => void
 }
 
 
-const CardPoem = ({title, text, date, user}: Poem) => {
+
+const CardPoemUser = ({_id ,title, text, date, user, handleDelete}: Poem) => {
   return (
     <div className={style.card}>
         <div className='py-2'>
@@ -35,8 +38,9 @@ const CardPoem = ({title, text, date, user}: Poem) => {
                 <span className='font-bold text-sm'>{dayjs(date).fromNow()}</span>
             </div>
         </div>
+        <button onClick={() => handleDelete(_id)} className='bg-red-700 text-white w-4/5 rounded-sm mt-1 py-1 font-bold mb-1'>Delete</button>
     </div>
   )
 }
 
-export default CardPoem
+export default CardPoemUser

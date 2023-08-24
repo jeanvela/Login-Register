@@ -21,14 +21,14 @@ const Poems = () => {
   const allPoems = useAppSelector(state => state.getPoems)
   const max: number = Math.ceil(allPoems.poem.length / forPage)
   const len: number = allPoems.poem.length
-  console.log(max)
-  console.log(allPoems.poem)
+
   useEffect(() => {
     dispacth(getPoems())
   }, [dispacth])
 
   return (
     <section className={style.Poems}>
+      <h1 className='mb-6 font-bold text-2xl'>Poems</h1>
       <div className={style.contaiPoems}>
         {
           allPoems.poem.length === 0 ? (
@@ -51,7 +51,7 @@ const Poems = () => {
         }
       </div>
       {
-        len >= 0 && len <= 8  ? '' : <Paginacion page={page} max={max} setPage={setPage}></Paginacion>
+        len === 0 || len <= 8  ? '' : <Paginacion page={page} max={max} setPage={setPage}></Paginacion>
       }
     </section>
   )
