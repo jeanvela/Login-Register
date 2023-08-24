@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../redux/hook';
 import { getPoems } from '../redux/feutures/poemsSlice';
 import CardPoem from '../components/CardPoem';
 import style from '../styles/Poems.module.css';
+import Paginacion from '../components/Paginacion';
 
 interface Poem {
   title: string
@@ -14,8 +15,13 @@ interface Poem {
 }
 
 const Poems = () => {
+  const [page, setPage] = useState(1)
+  const forPage = 8
   const dispacth = useAppDispatch()
   const allPoems = useAppSelector(state => state.getPoems)
+  const max: number = Math.ceil(allPoems.poem.length / forPage)
+  const len: number = allPoems.poem.length
+  console.log(max)
   console.log(allPoems.poem)
   useEffect(() => {
     dispacth(getPoems())
@@ -25,19 +31,28 @@ const Poems = () => {
     <section className={style.Poems}>
       <div className={style.contaiPoems}>
         {
-          allPoems.poem?.map((p: Poem, i: number) => {
-            return (
-              <CardPoem
-                key={i}
-                title={p.title}
-                text={p.text}
-                date={p.date}
-                user={p.user}
-              />
-            )
-          })
+          allPoems.poem.length === 0 ? (
+            <div>
+              Loading....
+            </div>
+          ) : (
+            allPoems.poem?.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map((p: Poem, i: number) => {
+              return (
+                <CardPoem
+                  key={i}
+                  title={p.title}
+                  text={p.text}
+                  date={p.date}
+                  user={p.user}
+                />
+              )
+            })
+          )
         }
       </div>
+      {
+        len >= 0 && len <= 8  ? '' : <Paginacion page={page} max={max} setPage={setPage}></Paginacion>
+      }
     </section>
   )
 }

@@ -16,7 +16,7 @@ import NotFound from './pages/NotFound';
 function App() {
   const dispacth = useAppDispatch()
   const [isAuth, setIsAuth] = useState(false)
-  console.log(isAuth)
+
   useEffect(() => {
     const userToken = Cookies.get()
     if (userToken.token) {
@@ -33,7 +33,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Poems />}/>
           <Route path='/login' element={<Login setIsAuth={setIsAuth}/>}/>
-          <Route path='/register' element={<Register />}/>
+          <Route path='/register' element={<Register setIsAuth={setIsAuth} />}/>
           <Route element={<ProtectedRouter isAuth={isAuth}></ProtectedRouter>}>
             <Route path='/my-poems' element={<UserPoems />}/>
             <Route path='/create-poem' element={<CreatePoem />}/>

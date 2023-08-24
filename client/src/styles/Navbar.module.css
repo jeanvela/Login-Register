@@ -1,8 +1,8 @@
 .header {
-    background-color: #f5f3f4;
+    background-color: #343a40;
     padding: 14px;
     text-align: center;
-    border-bottom: #000 solid 1px;
+    /* border-bottom: #000 solid 1px; */
 }
 
 .ul {

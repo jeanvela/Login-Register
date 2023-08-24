@@ -1,5 +1,9 @@
 import useImg from '../assets/images/user.jpg';
 import style from '../styles/CardPoem.module.css';
+import dayjs from 'dayjs';
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime)
 
 interface Poem {
     title: string
@@ -9,6 +13,7 @@ interface Poem {
         username: string,
     }
 }
+
 
 const CardPoem = ({title, text, date, user}: Poem) => {
   return (
@@ -25,7 +30,7 @@ const CardPoem = ({title, text, date, user}: Poem) => {
                 <p>{user.username}</p>
             </div>
             <div className={style.date}>
-                <span>{date}</span>
+                <span className='font-bold text-sm'>{dayjs(date).fromNow()}</span>
             </div>
         </div>
     </div>

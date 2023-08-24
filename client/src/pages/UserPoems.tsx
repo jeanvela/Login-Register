@@ -15,7 +15,7 @@ interface Poem {
 const UserPoems = () => {
   const dispacth = useAppDispatch()
   const allPoemsUser = useAppSelector(state => state.getPoemsUser.poems)
-  console.log(allPoemsUser)
+
   useEffect(() => {
     dispacth(getPoemsUser())
   }, [dispacth])
@@ -24,17 +24,25 @@ const UserPoems = () => {
     <section className='py-16 px-4 grid place-items-center'>
       <div className='flex flex-wrap w-full max-[width]:1400px gap-4 px-2.5 justify-center items-center'>
         {
-          allPoemsUser?.map((poem: Poem, i: number) => {
-            return (
-              <CardPoem
-                key={i}
-                text={poem.text}
-                title={poem.title}
-                date={poem.date}
-                user={poem.user}
-              />
-            )
-          })
+          allPoemsUser.length === 0 ? (
+            <div>
+              <h1 className='text-5xl font-bold text-center'>You have no poems yet to show.</h1>
+            </div>
+          ) : (
+            allPoemsUser?.map((poem: Poem, i: number) => {
+              return (
+                <CardPoem
+                  key={i}
+                  text={poem.text}
+                  title={poem.title}
+                  date={poem.date}
+                  user={poem.user}
+                />
+              )
+            })
+          )
+        }
+        {
         }
       </div>
     </section>

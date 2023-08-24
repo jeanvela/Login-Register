@@ -70,7 +70,7 @@ const loginUpSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(logIn.fulfilled, (state, action) => {
             state.user = action.payload,
-            state.error = null
+            state.error = {}
         })
         builder.addCase(logIn.rejected, (state, action) => {
             state.error = action.error

@@ -1,19 +1,24 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
 
 interface Poem {
     title: string
     text: string,
-    // user: string
 }
 
-const initialState = {
+interface Root {
+    poem: {}
+    error: AxiosError | unknown
+}
+
+const initialState: Root = {
     poem: {
         title: '',
         text: '',
         user: '',
-    }
+    },
+    error: {}
 }
 
 export const postPoem = createAsyncThunk('createPoem', async (poem: Poem) => {
@@ -25,10 +30,13 @@ export const postPoem = createAsyncThunk('createPoem', async (poem: Poem) => {
             },
             withCredentials: true
         })
-        console.log(response)
         return response.data
-    } catch (error: any) {
-        throw Error(error)
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            throw error.response?.data.mensaje
+        } else {
+            throw error
+        }
     }
 })
 
@@ -39,6 +47,9 @@ const createPoemSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(postPoem.fulfilled, (state, action) => {
             state.poem = action.payload
+        })
+        builder.addCase(postPoem.rejected, (state, action) => {
+            state.error = action.error
         })
     }
 })

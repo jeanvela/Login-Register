@@ -1,9 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
 
-const initialState = {
+interface initial {
     poem: []
+    error: AxiosError | unknown
+}
+
+const initialState: initial = {
+    poem: [],
+    error: {}
 }
 
 export const getPoems = createAsyncThunk('getPoem',async () => {
@@ -16,8 +22,11 @@ export const getPoems = createAsyncThunk('getPoem',async () => {
             }
         })
         return response.data
-    } catch (error: any) {
-        throw Error(error)
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            throw error.response?.data.message
+        }
+        throw error
     }
 })
 
@@ -28,6 +37,10 @@ const poemsSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(getPoems.fulfilled, (state, action) => {
             state.poem = action.payload
+            state.error = null
+        })
+        builder.addCase(getPoems.rejected, (state, action) => {
+            state.error = action.error
         })
     },
 })

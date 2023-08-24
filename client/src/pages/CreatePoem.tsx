@@ -2,6 +2,7 @@ import { FormEvent, useState, ChangeEvent } from 'react'
 import { postPoem } from '../redux/feutures/createPoemSlice'
 import { useAppDispatch } from '../redux/hook'
 import style from '../styles/CreatePoem.module.css'
+import { toast } from 'react-toastify'
 
 interface Poem {
   title: string
@@ -10,6 +11,7 @@ interface Poem {
 
 const CreatePoem = () => {
   const dispacth = useAppDispatch()
+
   const [createPoem, setCreatePoem] = useState<Poem>({
     title: '',
     text: ''
@@ -23,6 +25,17 @@ const CreatePoem = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     dispacth(postPoem(createPoem))
+    setCreatePoem({
+      text: '',
+      title: ''
+    })
+    toast.success('Poem created successfully', {
+      position: 'top-center',
+      autoClose: 3000,
+      pauseOnHover: false,
+      closeOnClick: false,
+      theme: 'light',
+    })
   }
 
   return (
@@ -43,12 +56,13 @@ const CreatePoem = () => {
             <textarea 
               onChange={handlechangue} 
               name="text" 
-              // cols={35} rows={8} 
               placeholder='text...' 
-              className='text-white resize-none p-1 outline-none border-none w-full h-52'
+              className='text-justify text-white resize-none p-1 outline-none border-none w-full h-52'
             ></textarea>
           </div>
-          <button className={style.btn}>Create poem</button>
+          <button 
+            className={style.btn}
+          >Create poem</button>
         </form>
       </div>
     </section>

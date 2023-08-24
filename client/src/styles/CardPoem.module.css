@@ -1,11 +1,11 @@
 .card {
     border-radius: 6px;
-    background: #caf0f8;
-    box-shadow:  11px 11px 8px #656565, -11px -11px 8px #ffffff;
+    background: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 320px;
+    color: #343a40;
 }
 
 .textPoem {
