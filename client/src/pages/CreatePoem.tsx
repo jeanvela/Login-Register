@@ -13,7 +13,7 @@ const CreatePoem = () => {
   const dispacth = useAppDispatch()
   const error = useAppSelector(state => state.createPoem.error)
   const newError = Object(error)
-  console.log(newError)
+
   const [createPoem, setCreatePoem] = useState<Poem>({
     title: '',
     text: ''
@@ -33,8 +33,8 @@ const CreatePoem = () => {
       return
     } else {
       setCreatePoem({
-        text: '',
-        title: ''
+        title: '',
+        text: ''
       })
       toast.success('Poem created successfully', {
         position: 'top-center',
@@ -46,7 +46,7 @@ const CreatePoem = () => {
     }
     
   }
-
+  console.log(createPoem)
   return (
     <section className={style.section}>
       <div>
@@ -65,13 +65,15 @@ const CreatePoem = () => {
               type="text"
               name='title' 
               placeholder='title...' 
+              value={createPoem.title}
               className={style.input}
             />
           </div>
           <div className='w-full px-4'>
             <textarea 
               onChange={handlechangue} 
-              name="text" 
+              name="text"
+              value={createPoem.text}
               placeholder='text...' 
               className='text-justify text-white resize-none p-1 outline-none border-none w-full h-52'
             ></textarea>

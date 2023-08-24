@@ -8,7 +8,7 @@ const router = Router()
 router.get('/allPoems', allgetPoems)
 router.get('/poems', authRequired, getPoems)
 router.get('/poems/:id', authRequired, poemById)
-router.post('/poems/post', errorSchemaPoem, authRequired, createPoems)
+router.post('/poems/post', authRequired, createPoems)
 router.delete('/poems/:id', authRequired, deletePoem)
 router.put('/poems/:id', authRequired, editPoems)
 

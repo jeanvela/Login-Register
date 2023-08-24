@@ -28,11 +28,11 @@ const Poems = () => {
 
   return (
     <section className={style.Poems}>
-      <h1 className='mb-6 font-bold text-2xl'>Poems</h1>
+      <h1 className='mb-6 font-bold text-2xl text-center'>Poems</h1>
       <div className={style.contaiPoems}>
         {
           allPoems.poem.length === 0 ? (
-            <div>
+            <div className='font-bold text-2xl text-center my-16'>
               Loading....
             </div>
           ) : (
