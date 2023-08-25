@@ -27,7 +27,8 @@ const UserPoems = () => {
   const handleDelete = async (id: string) => {
     try {
         const token = Cookies.get()
-        const response = await axios.delete(`http://localhost:3001/api/poems/${id}`, {
+        // http://localhost:3001/api
+        const response = await axios.delete(`https://backend-loginregister-production.up.railway.app/api/poems/${id}`, {
             withCredentials: true,
             headers: {
                 Authorization: `Bearer ${token.token}`

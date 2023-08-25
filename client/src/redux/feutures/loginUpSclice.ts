@@ -2,10 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 
 const Axios = axios.create({
-    baseURL: 'http://localhost:3001/api',
+    baseURL: 'https://backend-loginregister-production.up.railway.app/api',
     withCredentials: true
 })
-
+//http://localhost:3001/api
 interface User {
     email: string
     password: string

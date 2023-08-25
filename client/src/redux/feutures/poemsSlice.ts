@@ -15,7 +15,7 @@ const initialState: initial = {
 export const getPoems = createAsyncThunk('getPoem',async () => {
     try {
         const token = Cookies.get()
-        const response = await axios.get('http://localhost:3001/api/allPoems', {
+        const response = await axios.get('https://backend-loginregister-production.up.railway.app/api/allPoems', {
             withCredentials: true,
             headers: {
                 Authorization: `Bearer ${token.token}`
