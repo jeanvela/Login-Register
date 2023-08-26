@@ -19,7 +19,7 @@ const initialState: Root = {
 
 export const signUp = createAsyncThunk('signUp', async (user: User) => {
     try {
-        const response = await axios.post('https://backend-loginregister-production.up.railway.app/api/register', user)
+        const response = await axios.post('https://backend-loginregister-ode4-dev.fl0.io/api/register', user)
         return response.data
     } catch (error) {
         if (axios.isAxiosError(error)) {

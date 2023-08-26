@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 
 const Axios = axios.create({
-    baseURL: 'https://backend-loginregister-production.up.railway.app/api',
+    baseURL: 'https://backend-loginregister-ode4-dev.fl0.io/api',
     withCredentials: true
 })
 //http://localhost:3001/api
