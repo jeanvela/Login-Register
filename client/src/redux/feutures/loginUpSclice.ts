@@ -3,7 +3,10 @@ import axios, { AxiosError } from "axios";
 
 const Axios = axios.create({
     baseURL: 'https://backend-loginregister-ode4-dev.fl0.io/api',
-    withCredentials: true
+    withCredentials: true,
+    headers: {
+        'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'
+    }
 })
 //http://localhost:3001/api
 interface User {
