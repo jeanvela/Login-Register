@@ -13,3 +13,17 @@ Install back-end
   cd api
   npm i
 ```
+Install front-end
+
+```bash
+  cd api
+  npm i
+```
+    
+## URL
+cambiar las url de redux/feutures.
+comentar las lineas de controller/authController.js
+```bash
+  https://backend-loginregister-ode4-dev.fl0.io
+  http://localhost:3001/api
+```
